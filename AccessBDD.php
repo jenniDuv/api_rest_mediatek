@@ -46,6 +46,8 @@ class AccessBDD {
                 case "etat" :
                     // select portant sur une table contenant juste id et libelle
                     return $this->selectTableSimple($table);
+                case "commande":
+                    return $this->selectAllCommandes();
                 default:
                     // select portant sur une table, sans condition
                     return $this->selectTable($table);
@@ -257,5 +259,12 @@ class AccessBDD {
             return false;
         }
     }
+
+    public function selectAllCommandes(){
+        $req = "Select c.id, c.dateCommande, c.montant, cd.nbExemplaire, s.etape from commande c join commandedocument cd on c.id = cd.id join suivi s on cd.id = s.idCommande";
+        
+        return $this->conn->query($req);
+    }
+
 
 }

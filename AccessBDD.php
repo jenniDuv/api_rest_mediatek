@@ -6,10 +6,10 @@ include_once("ConnexionPDO.php");
  */
 class AccessBDD {
 	
-    public $login="root";
-    public $mdp="";
-    public $bd="mediatek86";
-    public $serveur="localhost";
+    public $login="media_user";
+    public $mdp="usermediatek86";
+    public $bd="media_mediatek86";
+    public $serveur="mysql-media.alwaysdata.net";
     public $port="3306";
     public $conn = null;
 
@@ -261,8 +261,7 @@ class AccessBDD {
     }
 
     public function selectAllCommandes(){
-        $req = "Select c.id, c.dateCommande, c.montant, cd.nbExemplaire, s.etape from commande c join commandedocument cd on c.id = cd.id join suivi s on cd.id = s.idCommande";
-        
+        $req = "Select c.id, c.dateCommande, c.montant, cd.nbExemplaire, cd.idLivreDvd, s.libelle as etape from commande c join commandedocument cd on c.id = cd.id join suivi s on cd.idSuivi = s.id order by c.dateCommande desc";
         return $this->conn->query($req);
     }
 

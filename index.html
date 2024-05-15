@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation de l'API PHP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            margin-top: 40px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .method {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Documentation de l'API PHP</h1>
+
+    <h2>Introduction</h2>
+    <p>Cette documentation détaille les différentes fonctionnalités de l'API en PHP. L'objectif est de permettre de gérer les documents (livres, DVD, revues) de chaque médiathèque du réseau "Mediatek86".</p>
+
+    <div class="method">
+    <h2>Classe AccessBDD</h2>
+    <p>Cette classe permet d'effectuer des opérations sur la base de données.
+        Il existe deux methode : selectAll($table), cettte méthode va recuperé les ligne d'une table spécifier.
+        Et il y a une méthode select($table, champs) qui récupère les lignes d'une table selon les champs spécifiés
+    </p>
+    </div>
+
+    <div class="method">
+    <h2>Classe ConnexionPDO</h2>
+    <p>Cette classe gère la connexion à une base de données MySQL et l'exécution de requêtes SQL.
+        Il existe tois méthodes :
+
+        <h3>__construct($login, $mdp, $bd, $serveur, $port)</h3>
+        <p>Le construteur de la classe, va établir la connexion à la base de données. </p>
+
+        <h3>execute($requete, $param=null)</h3>
+        <p>Exécute une requête de mise à jour (insert, update, delete).</p>
+
+        <h3>query($requete, $param=null)</h3>
+        <p>Exécute une requête select retournant 0 à plusieurs lignes.</p>
+    </p>
+    </div>
+
+    
+    
+
+   
+    
+
+    <!-- Ajoutez d'autres endpoints selon les besoins -->
+
+</body>
+</html>

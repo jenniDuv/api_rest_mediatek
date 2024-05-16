@@ -55,6 +55,90 @@
     </p>
     </div>
 
+    <div class="method">
+
+    <h2>Classe Controle</h2>
+    <p>Cette classe reçoit et traite les demandes du point d'entrée pour l'accès à la base de données via la classe <code>AccessBDD</code>. Il y a 6 méthode dans cette classe :</p>
+    <p> La methode <strong>reponse</strong> renvoie une réponse JSON au client, ensuite il y a la méthode get qui 
+        va traiter les requêtes GET pour récupérer des données dans la base de donnée ainsi que la méthode <strong>post</strong> qui lui va
+        traite les requêtes POST pour insérer des données dans une table. La méthode <strong>put</strong> va permettre de traiter les requêtes
+        PUT pour mettre à jour des données dans une table.
+    </p>
+
+    </div>
+    <div class="method">
+
+        <h2>Point d'entrée</h2>
+        <p>Le point d'entrée de l'API est défini dans le fichier principal qui inclut le contrôleur <code>Controle.php</code>. Ce point d'entrée gère les requêtes HTTP et effectue des actions en fonction du verbe HTTP utilisé et des paramètres fournis.</p>
+    
+        <h2>Authentification</h2>
+        <p>L'API utilise une authentification basique. Les utilisateurs doivent fournir un nom d'utilisateur et un mot de passe dans l'en-tête HTTP pour accéder aux ressources de l'API. Les identifiants par défaut sont :</p>
+        <ul>
+            <li>Nom d'utilisateur : <code>admin</code></li>
+            <li>Mot de passe : <code>adminpwd</code></li>
+        </ul>
+    
+        <h2>Requêtes et Paramètres</h2>
+    
+        <h3>GET</h3>
+        <p>Récupère des données à partir d'une table spécifiée.</p>
+        <p><strong>URL :</strong> <code>/api.php?table=nom_table&champs={"cle":"valeur"}</code></p>
+        <p><strong>Paramètres :</strong></p>
+        <ul>
+            <li><code>table</code> (string) : Nom de la table à interroger.</li>
+            <li><code>champs</code> (JSON) : (Optionnel) Champs de recherche sous forme de JSON.</li>
+        </ul>
+        <p><strong>Exemple :</strong> <code>/api.php?table=livre</code></p>
+    
+        <h3>POST</h3>
+        <p>Insère de nouvelles données dans une table spécifiée.</p>
+        <p><strong>URL :</strong> <code>/api.php</code></p>
+        <p><strong>Paramètres :</strong></p>
+        <ul>
+            <li><code>table</code> (string) : Nom de la table où insérer les données.</li>
+            <li><code>champs</code> (JSON) : Champs et valeurs à insérer sous forme de JSON.</li>
+        </ul>
+        <p><strong>Exemple :</strong> <code>/api.php</code> avec POST data <code>table=livre&champs={"titre":"Nouveau Livre","auteur":"Auteur"}</code></p>
+    
+        <h3>PUT</h3>
+        <p>Met à jour des données existantes dans une table spécifiée.</p>
+        <p><strong>URL :</strong> <code>/api.php</code></p>
+        <p><strong>Paramètres :</strong></p>
+        <ul>
+            <li><code>table</code> (string) : Nom de la table où mettre à jour les données.</li>
+            <li><code>id</code> (string) : Identifiant de la ligne à mettre à jour.</li>
+            <li><code>champs</code> (JSON) : Champs et valeurs à mettre à jour sous forme de JSON.</li>
+        </ul>
+        <p><strong>Exemple :</strong> <code>/api.php</code> avec PUT data <code>table=livre&id=1&champs={"titre":"Titre Mis à Jour"}</code></p>
+    
+        <h3>DELETE</h3>
+        <p>Supprime des données d'une table spécifiée.</p>
+        <p><strong>URL :</strong> <code>/api.php</code></p>
+        <p><strong>Paramètres :</strong></p>
+        <ul>
+            <li><code>table</code> (string) : Nom de la table où supprimer les données.</li>
+            <li><code>champs</code> (JSON) : Champs de recherche sous forme de JSON.</li>
+        </ul>
+        <p><strong>Exemple :</strong> <code>/api.php</code> avec DELETE data <code>table=livre&champs={"id":"1"}</code></p>
+    
+        <h2>Code de Réponse</h2>
+        <p>L'API renvoie des réponses JSON avec les codes HTTP standard et des messages correspondants :</p>
+        <ul>
+            <li><code>200 OK</code> : La requête a réussi.</li>
+            <li><code>400 Requête invalide</code> : Les paramètres de la requête sont incorrects.</li>
+            <li><code>401 Authentification incorrecte</code> : Les informations d'authentification sont incorrectes.</li>
+            <li><code>500 Erreur serveur</code> : Une erreur interne s'est produite.</li>
+        </ul>
+
+
+
+
+    </div>
+
+    
+
+    </div>
+
     
     
 
